@@ -1,0 +1,20 @@
+<h1 class="salt_template">{{title}} - {{district}}</h1>
+<p class="salt_template">{{{text}}}</p>
+<h2 class="salt_template">Adress</h2>
+
+{{#address}}{{#postcode}}{{#city}}
+<p class="salt_template">
+{{address}}</br>
+{{postcode}} {{city}}</br>
+</p>
+{{/city}}{{/postcode}}{{/address}}
+
+<h2 class="salt_template">Kontakt</h2>
+<p class="salt_template">
+{{#contact_name}}{{contact_name}}</br> {{/contact_name}}
+{{#contact_phone}}<strong class="salt_template">Tele: </strong>{{contact_phone}}</br>{{/contact_phone}}
+{{#contact_email}}<strong class="salt_template">E-Mail: </strong>{{contact_email}}</br>{{/contact_email}}
+{{#link}}<a class="salt_template" href="{{link}}">Hemsida</a></br>{{/link}}
+</p>
+<h2 class="salt_template">EFS fšrening</h2>
+<p class="salt_template">{{efs}}</p>

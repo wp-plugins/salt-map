@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+label.fieldLabel {
+	display: inline-block;
+	width: 100px;
+}
+
+select.fieldSelect {
+	width: 390px;
+}
+
+button.fieldButton {
+	float: right;
+	margin: 5px
+}
+
+input.field {
+	width: 390px;	
+}
+
+div.hide {
+	display: none;
+}
+
+div.fieldSettings {
+	width: 500px;
+	margin: 5px;
+	margin-bottom: 30px;
+	padding: 5px;
+	
+}
+	
+div.field {
+	clear:both;
+	border-style: solid;
+	border-width: thin;
+	border-color: lightgray;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px;
+	width: 500px;
+}

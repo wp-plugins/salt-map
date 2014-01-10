@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+#googleMap img {
+	max-width: none;
+}
+
+h1.salt_template {
+	font-size: 20px;
+	margin: 5px 0;
+}
+
+h2.salt_template {
+	font-size: 17px;
+	margin: 2px 0;
+}
+
+p.salt_template {
+	margin: 2px;
+}
+
+a.salt_template {
+}
+
+input.salt_map_search {
+width: 100%;
+}

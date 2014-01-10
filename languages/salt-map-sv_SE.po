@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SALT Map locations v0.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-09-10 11:39:05+0000\n"
+"Last-Translator: admin <samuel@erdtman.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: salt_map_locations.php:26
+#@ salt-map
+msgid "Locations"
+msgstr "Platser"
+
+#: salt_map_locations.php:27
+#@ salt-map
+msgid "Location"
+msgstr "Plats"
+
+#: salt_map_locations.php:42
+#@ salt-map
+msgid "Latitude"
+msgstr "Latitude"
+
+#: salt_map_locations.php:49
+#@ salt-map
+msgid "Longitude"
+msgstr "Longitude"
+
+#: salt_map_settings.php:18
+#@ salt-map
+msgid "Global settings for the SALT locations plugin."
+msgstr "Globala kartinställningar för SALT plats-plugin."
+
+#: salt_map_settings.php:29
+#@ salt-map
+msgid "General"
+msgstr "Allmänt"
+
+#: salt_map_settings.php:30
+#@ salt-map
+msgid "Google API key:"
+msgstr "Google API nyckel:"
+
+#: salt_map_settings.php:33
+#@ salt-map
+msgid "Initial Zoom:"
+msgstr "Initial in-zoomning:"
+
+#: salt_map_settings.php:34
+#@ salt-map
+msgid "Info window display type limit:"
+msgstr "Gräns för när informationsrutan skall visas utanför kartan:"
+
+#: salt_map_settings.php:37
+#@ salt-map
+msgid "Information Template:"
+msgstr "Template för informationsrutan:"
+
+#: salt_map_settings.php:38
+#@ salt-map
+msgid "Location Fields:"
+msgstr "Platsfält:"
+
+#: salt_map_settings.php:46
+#@ salt-map
+msgid "Enter your setting below:"
+msgstr "Fyll i dina inställningar här under:"
+
+#: salt_map_settings.php:71
+#@ salt-map
+msgid "Text"
+msgstr "Text"
+
+#: salt_map_settings.php:72
+#@ salt-map
+msgid "Select"
+msgstr "Val"
+
+#: salt_map_settings.php:75
+#@ salt-map
+msgid "Add"
+msgstr "Lägg till"
+
+#: salt_map_settings.php:76
+#@ salt-map
+msgid "Clear"
+msgstr "Rensa"
+
+#: salt_map_settings.php:90
+#@ salt-map
+msgid "Remove"
+msgstr "Ta bort"
+
+#: salt_map_settings.php:11
+#: salt_map_settings.php:17
+#@ salt-map
+msgid "Map Settings"
+msgstr "Kartinställningar"
+
+#: salt_map_locations.php:43
+#@ salt-map
+msgid "Latitude for the location."
+msgstr "Latitude för platsen"
+
+#: salt_map_locations.php:50
+#@ salt-map
+msgid "Longitude for the location."
+msgstr "Longitude för platsen"
+
+#: salt_map_settings.php:31
+#@ salt-map
+msgid "Grid size:"
+msgstr "Rutstorlek:"
+
+#: salt_map_settings.php:64
+#@ salt-map
+msgid "Name:"
+msgstr "Namn:"
+
+#: salt_map_settings.php:65
+#@ salt-map
+msgid "Description:"
+msgstr "Beskrivning:"
+
+#: salt_map_settings.php:66
+#: salt_map_settings.php:85
+#@ salt-map
+msgid "Id:"
+msgstr "Identifierare:"
+
+#: salt_map_settings.php:67
+#: salt_map_settings.php:86
+#@ salt-map
+msgid "Options:"
+msgstr "Val:"
+
+#: salt_map_settings.php:68
+#: salt_map_settings.php:88
+#@ salt-map
+msgid "Default:"
+msgstr "Standardvärde:"
+
+#: salt_map_settings.php:69
+#: salt_map_settings.php:87
+#@ salt-map
+msgid "Type:"
+msgstr "Sort:"
+
+#: salt_map_settings.php:32
+#@ salt-map
+msgid "Info window max width:"
+msgstr "Informationsrutans max-brädd:"
+
+#: salt_map_settings.php:35
+#@ salt-map
+msgid "Initial Center Latitude:"
+msgstr "Initial Center Latitude:"
+
+#: salt_map_settings.php:36
+#@ salt-map
+msgid "Initial Center Longitude:"
+msgstr "Initial Center Longitude:"
+
