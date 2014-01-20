@@ -44,11 +44,22 @@ Non yet.
 1. Location settings derived form the fields added under global settings.
 
 == Changelog ==
-= 1.0 =
+= 1.0.0 =
 Initial release.
+= 1.0.1 =
+Updated documentation.
 
 == Upgrade Notice ==
-This is the first version.
+Nothing yet.
+
+== Templating ==
+The info window is formated according to a template that is set in the global settings it is based on [mustache.js](http://mustache.github.io/) tempting framework. There is an example template in the distribution of the plugin named **template_example.html**. It is the id that is refereed in the template.
+
+== Styling ==
+The plugin adds the salt_map.css which can be used to add style to the info window.
+
+== API Key ==
+The plugin will work for now without registering a API key with google since mine still is active but for reliability it is recommended to register your own. [Here](http://www.w3schools.com/googleAPI/google_maps_api_key.asp) are some instructions on how to get an API key from Google.
 
 == Short Code ==
 The salt map is integrated with the short code 'salt_map'. It has several parameters. All 
