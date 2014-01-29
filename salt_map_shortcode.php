@@ -40,11 +40,12 @@ class salt_map_shortcode {
 		return json_encode($location);
 	}
 
-	public function draw_map( $atts ) {
-		
+	public function draw_map( $atts ) {		
 		$salt_map_setting = new salt_map_setting($atts);
 
-		$code .= '<input class="salt_map_search" id="salt_map_search" type="text" placeholder="' . __('Search', "salt-map") . '"/>';
+		if($salt_map_setting->includeSearch == "true") {
+			$code .= '<input class="salt_map_search" id="salt_map_search" type="text" placeholder="' . __('Search', "salt-map") . '"/>';
+		}
 		$code .= '<div id="googleMap" style="height:' . $salt_map_setting->height . ';"></div>';
 		$code .= '<div id="infoWindow"></div>';
 		$code .= '<script src="//maps.googleapis.com/maps/api/js?key=' . $salt_map_setting->apiKey . '&sensor=false"></script>';

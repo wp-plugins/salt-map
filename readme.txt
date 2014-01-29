@@ -3,7 +3,7 @@ Contributors: Samuel Erdtman
 Tags: Google Maps, SALT, locations, map
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.1.0
 Donate Link: http://salt.efs.nu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -48,9 +48,13 @@ Non yet.
 Initial release.
 = 1.0.1 =
 Updated documentation.
+= 1.1.0 =
+Added short code parameter for including 
 
 == Upgrade Notice ==
-Nothing yet.
+When upgrading to 1.1.0 the search field has been made optional and default is not to show add the short code parameter **includeSerach=true** to get it back.
+
+If the location images has been replaced they will be changed back and the replacement has to be done again.
 
 == Templating ==
 The info window is formated according to a template that is set in the global settings it is based on [mustache.js](http://mustache.github.io/) tempting framework. There is an example template in the distribution of the plugin named **template_example.html**. It is the id that is refereed in the template.
@@ -74,6 +78,7 @@ se "Available parameters" here below.
 * **gridSize**, limit for when to group locations 
 * **maxWidth**, max width of infowindow
 * **apiKey**, Google API key for loading the map.
+* **includeSearch**, Add the search field by setting to true
 * **largeScreenLimit**, screen size limit for when to display infowindow insode or outside map.
 * **filterAttribute**, specifies an attribute to filter locations on. filterValue has to be set for this parameter to function.
 * **filterValue**, specifies the value to filter attribute on, comarisone is made with LIKE. filterAttribute has to be set for this parameter to function. 

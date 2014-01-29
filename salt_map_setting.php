@@ -1,8 +1,8 @@
 <?php
 class salt_map_setting {
 
-	var $resourcesLocation;
-	var $lat;
+	public $resourcesLocation;
+	public $lat;
 	public $lng;
 	public $zoom;
 	public $gridSize;
@@ -14,6 +14,7 @@ class salt_map_setting {
 	public $largeScreenLimit;
 	public $filterAttribute;
 	public $filterValue;
+	public $includeSearch;
 
 	public function __construct($atts) {
 		extract( shortcode_atts( array(
@@ -21,29 +22,31 @@ class salt_map_setting {
 		'lat' => null,
 		'lng' => null,
 		'zoom' => null,
-		'gridSize' => null,
-		'maxWidth' => null,
-		'infoTemplate' => null,
-		'apiKey' => null,
-		'largeScreenLimit' => null,
+		'gridsize' => null,
+		'maxwidth' => null,
+		'infotemplate' => null,
+		'apikey' => null,
+		'largescreenlimit' => null,
 		'filterattribute' => null,
-		'filtervalue' => null
+		'filtervalue' => null,
+		'includesearch' => null		
 		), $atts ) );
 
 		$this->resourcesLocation = plugins_url('salt_map');
 		$this->lat = $this->getSetting('lat', 59, $lat);
 		$this->lng = $this->getSetting("lng", 17, $lng);
 		$this->zoom = intval($this->getSetting("zoom", "5", $zoom));
-		$this->gridSize = intval($this->getSetting("gridSize", 20, $gridSize));
-		$this->maxWidth = $this->getSetting("maxWidt", 300, $maxWidth);
+		$this->gridSize = intval($this->getSetting("gridSize", 20, $gridsize));
+		$this->maxWidth = $this->getSetting("maxWidt", 300, $maxwidth);
 		$this->height = $this->getSetting("height", "380px", $height);
-		$this->infoTemplate = $this->getSetting("infoTemplate", "{{title}} - {{{text}}}", $infoTemplate);
+		$this->infoTemplate = $this->getSetting("infoTemplate", "{{title}} - {{{text}}}", $infotemplate);
 		$this->height = $this->getSetting("height", "380px", $height);
-		$this->apiKey = $this->getSetting("api_key", "AIzaSyDSNxdSHJ-t71R5v-K2PnFMBCVv2DKC_mU", $apiKey);
+		$this->apiKey = $this->getSetting("api_key", "AIzaSyDSNxdSHJ-t71R5v-K2PnFMBCVv2DKC_mU", $apikey);
 		$this->fieldsSettings = json_decode($this->getSetting("fieldsSettings", "[]", null), true);
-		$this->largeScreenLimit = $this->getSetting("largeScreenLimit", "500px", $largeScreenLimit);
+		$this->largeScreenLimit = $this->getSetting("largeScreenLimit", "500px", $largescreenlimit);
 		$this->filterAttribute = $filterattribute;
 		$this->filterValue = $filtervalue;
+		$this->includeSearch = $includesearch;
 	}
 
 	public function getMetaQuery() {
