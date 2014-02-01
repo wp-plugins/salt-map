@@ -4,11 +4,11 @@ include_once('salt_map_setting.php');
 class salt_map_shortcode {
 	public function __construct() {
 		add_shortcode( 'salt_map', array($this,'draw_map') );
-		wp_register_script( 'salt_map_page_script', plugins_url( '/salt_map.js', __FILE__ ) );
-		wp_register_script( 'salt_map_markerclusterer_script', plugins_url( '/markerclusterer_compiled.js', __FILE__ ) );
-		wp_register_script( 'salt_map_mustache_script', plugins_url( '/mustache.js', __FILE__ ) );
+		wp_register_script( 'salt_map_page_script', plugins_url( '/scripts/salt_map.js', __FILE__ ) );
+		wp_register_script( 'salt_map_markerclusterer_script', plugins_url( '/scripts/markerclusterer_compiled.js', __FILE__ ) );
+		wp_register_script( 'salt_map_mustache_script', plugins_url( '/scripts/mustache.js', __FILE__ ) );
 		
-		wp_register_style( 'salt_map_page_style', plugins_url( '/salt_map.css', __FILE__ ) );
+		wp_register_style( 'salt_map_page_style', plugins_url( '/styles/salt_map.css', __FILE__ ) );
 		wp_register_style( 'salt_map_smoothness_style', plugins_url( '/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css', __FILE__ ) );
 						
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_scripts'));
@@ -68,7 +68,7 @@ class salt_map_shortcode {
 			}
 		}
 		$code .= '];';
-		$code .= 'var config =' . json_encode(new salt_map_setting($atts)) . ';';
+		$code .= 'var config =' . json_encode($salt_map_setting) . ';';
 		$code .= 'google.maps.event.addDomListener(window, "load", function(){salt_setup_map(data, config);});';
 		$code .= '</script>';
 

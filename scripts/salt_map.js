@@ -6,21 +6,21 @@ function salt_setup_map(data, config) {
 		mapTypeId : google.maps.MapTypeId.ROADMAP
 	};
 	var styles = [ {
-		url : config.resourcesLocation + '/images/salt_location_cluster_1.png',
+		url : config.locationGroup1Icon,
 		height : 35,
 		width : 35,
 		opt_anchor : [ 16, 0 ],
 		opt_textColor : '#fff',
 		opt_textSize : 10
 	}, {
-		url : config.resourcesLocation + '/images/salt_location_cluster_2.png',
+		url : config.locationGroup2Icon,
 		height : 45,
 		width : 45,
 		opt_anchor : [ 24, 0 ],
 		opt_textColor : '#fff',
 		opt_textSize : 11
 	}, {
-		url : config.resourcesLocation + '/images/salt_location_cluster_3.png',
+		url : config.locationGroup3Icon,
 		height : 55,
 		width : 55,
 		opt_anchor : [ 32, 0 ],
@@ -81,7 +81,7 @@ function salt_setup_map(data, config) {
 		var marker = new google.maps.Marker( {
 			position : new google.maps.LatLng(locationData.lat,
 					locationData.lng),
-			icon : config.resourcesLocation + '/images/salt_location.png'
+			icon : config.locationIcon
 		});
 		var text = Mustache.render(config.infoTemplate, locationData);
 

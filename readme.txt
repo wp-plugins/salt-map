@@ -3,7 +3,7 @@ Contributors: Samuel Erdtman
 Tags: Google Maps, SALT, locations, map
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Donate Link: http://salt.efs.nu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -44,17 +44,22 @@ Non yet.
 1. Location settings derived form the fields added under global settings.
 
 == Changelog ==
-= 1.0.0 =
-Initial release.
-= 1.0.1 =
-Updated documentation.
+= 1.2.0 =
+* Made it possible to use icons from media archive.
+* Moved files into folders.
 = 1.1.0 =
-Added short code parameter for including 
+* Added short code parameter for including 
+= 1.0.1 =
+* Updated documentation.
+= 1.0.0 =
+* Initial release.
 
 == Upgrade Notice ==
-When upgrading to 1.1.0 the search field has been made optional and default is not to show add the short code parameter **includeSerach=true** to get it back.
+When upgrading from pre 1.1.0 the search field has been made optional and default is not to show add the short code parameter **includeSerach=true** to get it back.
 
-If the location images has been replaced they will be changed back and the replacement has to be done again.
+If images in plugin folder has been replaced that will change back but form version 1.2.0 it is no longer needed to replace files in plugin folder, images from the media archive can be used for location icons.
+
+Replaced language files will be removed and has to be put back
 
 == Templating ==
 The info window is formated according to a template that is set in the global settings it is based on [mustache.js](http://mustache.github.io/) tempting framework. There is an example template in the distribution of the plugin named **template_example.html**. It is the id that is refereed in the template.
@@ -95,5 +100,4 @@ se "Available parameters" here below.
 
 == Known Limitations ==
 * It is not possible to have more then one map on one page.
-* Changing icons requires changing of files
 

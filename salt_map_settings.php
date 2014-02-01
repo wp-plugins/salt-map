@@ -13,7 +13,8 @@ class salt_map_settings {
 	}
 	
 	public function admin_scripts() {
-		wp_enqueue_script( array('salt_map_admin_mustache', 'salt_map_admin_script') );
+		wp_enqueue_script( array('jquery', 'salt_map_admin_mustache', 'salt_map_admin_script') );
+		wp_enqueue_media();
 		wp_enqueue_style( array('salt_map_admin_field_style') );
 	}
 	
@@ -40,13 +41,19 @@ class salt_map_settings {
 		add_settings_field('largeScreenLimit', __('Info window display type limit:', "salt-map"), array( $this, 'create_field' ), 'test-setting-admin','setting_section_id', array('id'=>'largeScreenLimit'));
 		add_settings_field('lat', __('Initial Center Latitude:', "salt-map"), array( $this, 'create_field' ), 'test-setting-admin','setting_section_id', array('id'=>'lat'));
 		add_settings_field('lng', __('Initial Center Longitude:', "salt-map"), array( $this, 'create_field' ), 'test-setting-admin','setting_section_id', array('id'=>'lng'));
+
+		add_settings_field('locationIcon', __('Location Icon:', "salt-map"), array( $this, 'create_image_select' ), 'test-setting-admin','setting_section_id', array('id'=>'locationIcon'));
+		add_settings_field('locationGroup1Icon', __('Location Group 1 Icon:', "salt-map"), array( $this, 'create_image_select' ), 'test-setting-admin','setting_section_id', array('id'=>'locationGroup1Icon'));
+		add_settings_field('locationGroup2Icon', __('Location Group 2 Icon:', "salt-map"), array( $this, 'create_image_select' ), 'test-setting-admin','setting_section_id', array('id'=>'locationGroup2Icon'));
+		add_settings_field('locationGroup3Icon', __('Location Group 3 Icon:', "salt-map"), array( $this, 'create_image_select' ), 'test-setting-admin','setting_section_id', array('id'=>'locationGroup3Icon'));
+
 		add_settings_field('infoTemplate', __('Information Template:', "salt-map"), array( $this, 'create_textarea' ), 'test-setting-admin','setting_section_id', array('id'=>'infoTemplate'));
 		add_settings_field('fieldsSettings', __('Location Fields:', "salt-map"), array( $this, 'create_fields_settings' ), 'test-setting-admin','setting_section_id', array('id'=>'fieldsSettings'));
 		
-		wp_register_script( 'salt_map_admin_script', plugins_url( '/salt_fields.js', __FILE__ ) );
-		wp_register_script( 'salt_map_admin_mustache', plugins_url( '/mustache.js', __FILE__ ) );
+		wp_register_script( 'salt_map_admin_script', plugins_url( '/scripts/salt_fields.js', __FILE__ ) );
+		wp_register_script( 'salt_map_admin_mustache', plugins_url( '/scripts/mustache.js', __FILE__ ) );
 
-		wp_register_style( 'salt_map_admin_field_style', plugins_url( '/salt_fields.css', __FILE__ ) );
+		wp_register_style( 'salt_map_admin_field_style', plugins_url( '/styles/salt_fields.css', __FILE__ ) );
 	}
 
 	public function check_ID( $input ) {
@@ -66,6 +73,12 @@ class salt_map_settings {
 		echo '<textarea rows="15" cols="70" id="salt_map_settings_'.$args['id'].'" name="salt_map_settings['.$args['id'].']">'. $salt_map_settings[$args['id']] . '</textarea>';
 	}
 
+	public function create_image_select(array $args){
+		$salt_map_settings = get_option( "salt_map_settings", null );
+		echo '<input type="text"  name="salt_map_settings['.$args['id'].']" id="'.$args['id'].'" value="'. $salt_map_settings[$args['id']] . '" size="40" />';
+		echo '<input type="button" for="'.$args['id'].'" class="uploadButton"  value="Upload Image" />';
+	}
+	
 	public function create_fields_settings(array $args){
 		$salt_map_settings = get_option( "salt_map_settings", null );
 		echo '<div class="fieldSettings">';
