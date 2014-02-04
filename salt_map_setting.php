@@ -18,6 +18,7 @@ class salt_map_setting {
 	public $locationGroup1Icon;
 	public $locationGroup2Icon;
 	public $locationGroup3Icon;
+	public $instanceName;
 
 	public function __construct($atts) {
 		extract( shortcode_atts( array(
@@ -33,17 +34,18 @@ class salt_map_setting {
 		'filterattribute' => null,
 		'filtervalue' => null,
 		'includesearch' => null,
-		'locationIcon' => null,	
-		'locationGroup1Icon' => null,
-		'locationGroup2Icon' => null,
-		'locationGroup3Icon' => null									
+		'locationicon' => null,	
+		'locationgroup1icon' => null,
+		'locationgroup2icon' => null,
+		'locationgroup3icon' => null,
+		'instancename' => null
 		), $atts ) );
-
+		
 		$this->resourcesLocation = plugins_url('salt_map');
-		$this->locationIcon = $this->getSetting('locationIcon', $this->resourcesLocation . '/images/salt_location.png', $locationIcon);
-		$this->locationGroup1Icon = $this->getSetting('locationGroup1Icon', $this->resourcesLocation . '/images/salt_location_cluster_1.png', $locationGroup1Icon);
-		$this->locationGroup2Icon = $this->getSetting('locationGroup2Icon', $this->resourcesLocation . '/images/salt_location_cluster_2.png', $locationGroup2Icon);
-		$this->locationGroup3Icon = $this->getSetting('locationGroup3Icon', $this->resourcesLocation . '/images/salt_location_cluster_3.png', $locationGroup3Icon);
+		$this->locationIcon = $this->getSetting('locationIcon', $this->resourcesLocation . '/images/salt_location.png', $locationicon);
+		$this->locationGroup1Icon = $this->getSetting('locationGroup1Icon', $this->resourcesLocation . '/images/salt_location_cluster_1.png', $locationgroup1icon);
+		$this->locationGroup2Icon = $this->getSetting('locationGroup2Icon', $this->resourcesLocation . '/images/salt_location_cluster_2.png', $locationgroup2icon);
+		$this->locationGroup3Icon = $this->getSetting('locationGroup3Icon', $this->resourcesLocation . '/images/salt_location_cluster_3.png', $locationgroup3icon);
 		$this->lat = $this->getSetting('lat', 59, $lat);
 		$this->lng = $this->getSetting("lng", 17, $lng);
 		$this->zoom = intval($this->getSetting("zoom", "5", $zoom));
@@ -58,6 +60,7 @@ class salt_map_setting {
 		$this->filterAttribute = $filterattribute;
 		$this->filterValue = $filtervalue;
 		$this->includeSearch = $includesearch;
+		$this->instanceName = $instancename;
 	}
 
 	public function getMetaQuery() {

@@ -44,10 +44,10 @@ class salt_map_shortcode {
 		$salt_map_setting = new salt_map_setting($atts);
 
 		if($salt_map_setting->includeSearch == "true") {
-			$code .= '<input class="salt_map_search" id="salt_map_search" type="text" placeholder="' . __('Search', "salt-map") . '"/>';
+			$code .= '<input class="salt_map_search" id="saltMapSearch' . $salt_map_setting->instanceName . '" type="text" placeholder="' . __('Search', "salt-map") . '"/>';
 		}
-		$code .= '<div id="googleMap" style="height:' . $salt_map_setting->height . ';"></div>';
-		$code .= '<div id="infoWindow"></div>';
+		$code .= '<div id="googleMap' . $salt_map_setting->instanceName . '" style="height:' . $salt_map_setting->height . ';"></div>';
+		$code .= '<div id="infoWindow' . $salt_map_setting->instanceName . '"></div>';
 		$code .= '<script src="//maps.googleapis.com/maps/api/js?key=' . $salt_map_setting->apiKey . '&sensor=false"></script>';
 
 		$code .= '<script>';
@@ -62,14 +62,17 @@ class salt_map_shortcode {
 		while ( $loop->have_posts() ){
 			$loop->the_post();
 
-			$salt_map_location = $this->createLocation($salt_map_setting, get_post_meta( get_the_ID() ), get_the_content(), get_the_title());//new salt_map_location(get_post_meta( get_the_ID() ), get_the_content(), get_the_title());
+			$salt_map_location = $this->createLocation($salt_map_setting, get_post_meta( get_the_ID() ), get_the_content(), get_the_title());
 			if($salt_map_location != null) {
 				$code .= $salt_map_location . ',';
 			}
 		}
 		$code .= '];';
 		$code .= 'var config =' . json_encode($salt_map_setting) . ';';
-		$code .= 'google.maps.event.addDomListener(window, "load", function(){salt_setup_map(data, config);});';
+		$code .= 'config.infoWindow = document.getElementById("infoWindow' . $salt_map_setting->instanceName . '");';
+		$code .= 'config.googleMap = document.getElementById("googleMap' . $salt_map_setting->instanceName . '");';
+		$code .= 'config.saltMapSearch = document.getElementById("saltMapSearch' . $salt_map_setting->instanceName . '");';
+		$code .= 'google.maps.event.addDomListener(window, "load", function(theData, theConfig){return function(){salt_setup_map(theData, theConfig);};}(data, config));';
 		$code .= '</script>';
 
 		return $code;

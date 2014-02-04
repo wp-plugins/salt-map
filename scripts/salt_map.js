@@ -29,7 +29,7 @@ function salt_setup_map(data, config) {
 	} ];
 	
 	var NewInfoWindow = function(text, maxWidth) {
-		var infoWindow = document.getElementById("infoWindow");
+		var infoWindow = config.infoWindow;
 		var open = false;
 		return {
 			close : function() {
@@ -68,10 +68,8 @@ function salt_setup_map(data, config) {
 	
 	var InfoWindowCreator = NewGoogleInfoWindow;
 	if (matchMedia) {
-		var mq = window.matchMedia("(min-width: "+config.largeScreenLimit+")"); // TODO
-																				// make
-																				// configurable
-		if(!mq.matches){
+		var mq = window.matchMedia("(min-width: " + config.largeScreenLimit + ")");
+		if (!mq.matches) {
 			InfoWindowCreator = NewInfoWindow;
 		}
 	}
@@ -129,13 +127,12 @@ function salt_setup_map(data, config) {
 		return me;
 	}
 
-	var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+	var map = new google.maps.Map(config.googleMap, mapProp);
 	var markers = [];
 	var locations = [];
 	for ( var i = 0; i < data.length; i++) {
 		var location = NewLocation(data[i]);
-		google.maps.event.addListener(location.getMarker(), 'click',
-				location.toggle);
+		google.maps.event.addListener(location.getMarker(), 'click', location.toggle);
 		markers.push(location.getMarker());
 		locations.push(location);
 		location.setMap(map);
@@ -147,7 +144,7 @@ function salt_setup_map(data, config) {
 		styles : styles
 	});
 	
-	jQuery("#salt_map_search").autocomplete( {
+	jQuery(config.saltMapSearch).autocomplete( {
       source : function(request, response) {
 		var needle = new RegExp(request.term, "i");
         var resp = [];
@@ -167,3 +164,6 @@ function salt_setup_map(data, config) {
       }
     });
 }
+
+
+

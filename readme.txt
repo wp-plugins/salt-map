@@ -3,7 +3,7 @@ Contributors: Samuel Erdtman
 Tags: Google Maps, SALT, locations, map
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 Donate Link: http://salt.efs.nu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -44,6 +44,8 @@ Non yet.
 1. Location settings derived form the fields added under global settings.
 
 == Changelog ==
+= 1.3.0 =
+* Added support for multiple maps on one page
 = 1.2.0 =
 * Made it possible to use icons from media archive.
 * Moved files into folders.
@@ -55,6 +57,8 @@ Non yet.
 * Initial release.
 
 == Upgrade Notice ==
+In 1.3.0 and later there exist the **instanceName** short code parameter it is required if wanting to have multiple maps on one page.
+
 When upgrading from pre 1.1.0 the search field has been made optional and default is not to show add the short code parameter **includeSerach=true** to get it back.
 
 If images in plugin folder has been replaced that will change back but form version 1.2.0 it is no longer needed to replace files in plugin folder, images from the media archive can be used for location icons.
@@ -73,9 +77,11 @@ The plugin will work for now without registering a API key with google since min
 == Short Code ==
 The salt map is integrated with the short code 'salt_map'. It has several parameters. All 
 settings data can be override through the short code parameters, for a list of parameters 
-se "Available parameters" here below. 
+se "Available parameters" here below.
+If you want to have several maps on one page then the **instanceName** parameter is mandatory.
 
 = Available parameters =
+* **instanceName**, in case of multiple maps on one page thy will need to have an instance name for internal referencing.
 * **height**, hight of this map instance. 
 * **lat**, inital center latetude.
 * **lng**, inital center longitude.
@@ -90,7 +96,7 @@ se "Available parameters" here below.
 
 = Example =
 <code>
-[salt_map height=500px]
+[salt_map height=500px instanceName=First]
 </code>
 
 == Dependencies ==
@@ -99,5 +105,4 @@ se "Available parameters" here below.
 * mustache.js
 
 == Known Limitations ==
-* It is not possible to have more then one map on one page.
-
+* None that we know of
