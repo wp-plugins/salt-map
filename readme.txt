@@ -3,7 +3,7 @@ Contributors: Samuel Erdtman
 Tags: Google Maps, SALT, locations, map
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 Donate Link: http://salt.efs.nu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -44,6 +44,8 @@ Non yet.
 1. Location settings derived form the fields added under global settings.
 
 == Changelog ==
+= 1.3.1 =
+* Fixed IE problems with load order and screen size detection.
 = 1.3.0 =
 * Added support for multiple maps on one page
 = 1.2.0 =

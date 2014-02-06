@@ -67,7 +67,7 @@ function salt_setup_map(data, config) {
 	};
 	
 	var InfoWindowCreator = NewGoogleInfoWindow;
-	if (matchMedia) {
+	if (window.matchMedia !== undefined) {
 		var mq = window.matchMedia("(min-width: " + config.largeScreenLimit + ")");
 		if (!mq.matches) {
 			InfoWindowCreator = NewInfoWindow;
@@ -144,24 +144,26 @@ function salt_setup_map(data, config) {
 		styles : styles
 	});
 	
-	jQuery(config.saltMapSearch).autocomplete( {
-      source : function(request, response) {
-		var needle = new RegExp(request.term, "i");
-        var resp = [];
-        for ( var i = 0; i < locations.length && resp.length < 10; i++) {
-          var current = locations[i]
-          if(current.contains(needle)){
-        	  resp.push(current);
+	jQuery(document).ready(function() {
+	  jQuery(config.saltMapSearch).autocomplete( {
+        source : function(request, response) {
+		  var needle = new RegExp(request.term, "i");
+          var resp = [];
+          for ( var i = 0; i < locations.length && resp.length < 10; i++) {
+            var current = locations[i]
+            if(current.contains(needle)){
+              resp.push(current);
+            }
           }
+          response(resp);
+        },
+        select : function(event, ui) {
+    	  map.setCenter(ui.item.getPosition());
+    	  map.setZoom(11);
+    	  ui.item.toggle();
+          return false;
         }
-        response(resp);
-      },
-      select : function(event, ui) {
-    	map.setCenter(ui.item.getPosition());
-    	map.setZoom(11);
-    	ui.item.toggle();
-        return false;
-      }
+      });
     });
 }
 
