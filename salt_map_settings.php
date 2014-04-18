@@ -50,6 +50,7 @@ class salt_map_settings {
 		add_settings_field('infoTemplate', __('Information Template:', "salt-map"), array( $this, 'create_textarea' ), 'test-setting-admin','setting_section_id', array('id'=>'infoTemplate'));
 		add_settings_field('fieldsSettings', __('Location Fields:', "salt-map"), array( $this, 'create_fields_settings' ), 'test-setting-admin','setting_section_id', array('id'=>'fieldsSettings'));
 		
+
 		wp_register_script( 'salt_map_admin_script', plugins_url( '/scripts/salt_fields.js', __FILE__ ) );
 		wp_register_script( 'salt_map_admin_mustache', plugins_url( '/scripts/mustache.js', __FILE__ ) );
 

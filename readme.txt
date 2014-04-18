@@ -44,6 +44,9 @@ Non yet.
 1. Location settings derived form the fields added under global settings.
 
 == Changelog ==
+= 1.4.0 =
+* Removed need for instanceName in short code when using several maps on one page
+* When map has a height larger the the viewport, it is lessened to 50px less then viewport
 = 1.3.1 =
 * Fixed IE problems with load order and screen size detection.
 = 1.3.0 =
@@ -59,6 +62,8 @@ Non yet.
 * Initial release.
 
 == Upgrade Notice ==
+When upgrading to 1.4.0 hight has to be set without unit, it will be pixels.
+
 In 1.3.0 and later there exist the **instanceName** short code parameter it is required if wanting to have multiple maps on one page.
 
 When upgrading from pre 1.1.0 the search field has been made optional and default is not to show add the short code parameter **includeSerach=true** to get it back.
@@ -83,14 +88,12 @@ se "Available parameters" here below.
 If you want to have several maps on one page then the **instanceName** parameter is mandatory.
 
 = Available parameters =
-* **instanceName**, in case of multiple maps on one page thy will need to have an instance name for internal referencing.
 * **height**, hight of this map instance. 
 * **lat**, inital center latetude.
 * **lng**, inital center longitude.
 * **zoom**, inital zoom.
 * **gridSize**, limit for when to group locations 
 * **maxWidth**, max width of infowindow
-* **apiKey**, Google API key for loading the map.
 * **includeSearch**, Add the search field by setting to true
 * **largeScreenLimit**, screen size limit for when to display infowindow insode or outside map.
 * **filterAttribute**, specifies an attribute to filter locations on. filterValue has to be set for this parameter to function.

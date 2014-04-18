@@ -51,16 +51,15 @@ class salt_map_setting {
 		$this->zoom = intval($this->getSetting("zoom", "5", $zoom));
 		$this->gridSize = intval($this->getSetting("gridSize", 20, $gridsize));
 		$this->maxWidth = $this->getSetting("maxWidt", 300, $maxwidth);
-		$this->height = $this->getSetting("height", "380px", $height);
+		$this->height = $this->getSetting("height", 380, $height);
 		$this->infoTemplate = $this->getSetting("infoTemplate", "{{title}} - {{{text}}}", $infotemplate);
-		$this->height = $this->getSetting("height", "380px", $height);
 		$this->apiKey = $this->getSetting("api_key", "AIzaSyDSNxdSHJ-t71R5v-K2PnFMBCVv2DKC_mU", $apikey);
 		$this->fieldsSettings = json_decode($this->getSetting("fieldsSettings", "[]", null), true);
 		$this->largeScreenLimit = $this->getSetting("largeScreenLimit", "500px", $largescreenlimit);
 		$this->filterAttribute = $filterattribute;
 		$this->filterValue = $filtervalue;
 		$this->includeSearch = $includesearch;
-		$this->instanceName = $instancename;
+		$this->instanceName = $this->getSetting("instanceName", rand ( 1000 , 9999 ), $instancename);
 	}
 
 	public function getMetaQuery() {

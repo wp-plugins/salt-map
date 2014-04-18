@@ -164,6 +164,11 @@ function salt_setup_map(data, config) {
           return false;
         }
       });
+
+      var height = jQuery(window).height();
+      if (height < config.height) {
+		jQuery(config.googleMap).height(height - 50);
+      }
     });
 }
 

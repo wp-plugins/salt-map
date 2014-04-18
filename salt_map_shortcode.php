@@ -7,6 +7,8 @@ class salt_map_shortcode {
 		wp_register_script( 'salt_map_page_script', plugins_url( '/scripts/salt_map.js', __FILE__ ) );
 		wp_register_script( 'salt_map_markerclusterer_script', plugins_url( '/scripts/markerclusterer_compiled.js', __FILE__ ) );
 		wp_register_script( 'salt_map_mustache_script', plugins_url( '/scripts/mustache.js', __FILE__ ) );
+		$salt_map_setting = new salt_map_setting();
+		wp_register_script( 'salt_map_google_map', '//maps.googleapis.com/maps/api/js?key=' . $salt_map_setting->apiKey . '&sensor=false');
 		
 		wp_register_style( 'salt_map_page_style', plugins_url( '/styles/salt_map.css', __FILE__ ) );
 		wp_register_style( 'salt_map_smoothness_style', plugins_url( '/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css', __FILE__ ) );
@@ -15,7 +17,7 @@ class salt_map_shortcode {
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_script( array('salt_map_mustache_script', 'salt_map_markerclusterer_script', 'salt_map_page_script') );
+		wp_enqueue_script( array('salt_map_google_map', 'salt_map_mustache_script', 'salt_map_markerclusterer_script', 'salt_map_page_script') );
 		wp_enqueue_script( array('jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-position','jquery-ui-autocomplete', 'jquery-ui-menu') );
 		
 		wp_enqueue_style( array('salt_map_page_style', 'salt_map_smoothness_style') );
@@ -46,9 +48,9 @@ class salt_map_shortcode {
 		if($salt_map_setting->includeSearch == "true") {
 			$code .= '<input class="salt_map_search" id="saltMapSearch' . $salt_map_setting->instanceName . '" type="text" placeholder="' . __('Search', "salt-map") . '"/>';
 		}
-		$code .= '<div id="googleMap' . $salt_map_setting->instanceName . '" style="height:' . $salt_map_setting->height . ';"></div>';
+		$code .= '<style>#googleMap' . $salt_map_setting->instanceName . ' img {max-width: none;}</style>';
+		$code .= '<div id="googleMap' . $salt_map_setting->instanceName . '" style="height:' . $salt_map_setting->height . 'px;"></div>';
 		$code .= '<div id="infoWindow' . $salt_map_setting->instanceName . '"></div>';
-		$code .= '<script src="//maps.googleapis.com/maps/api/js?key=' . $salt_map_setting->apiKey . '&sensor=false"></script>';
 
 		$code .= '<script>';
 		$code .= 'var data = [';
