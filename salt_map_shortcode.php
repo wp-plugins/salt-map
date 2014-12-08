@@ -7,7 +7,7 @@ class salt_map_shortcode {
 		wp_register_script( 'salt_map_page_script', plugins_url( '/scripts/salt_map.js', __FILE__ ) );
 		wp_register_script( 'salt_map_markerclusterer_script', plugins_url( '/scripts/markerclusterer_compiled.js', __FILE__ ) );
 		wp_register_script( 'salt_map_mustache_script', plugins_url( '/scripts/mustache.js', __FILE__ ) );
-		$salt_map_setting = new salt_map_setting();
+		$salt_map_setting = new salt_map_setting(array());
 		wp_register_script( 'salt_map_google_map', '//maps.googleapis.com/maps/api/js?key=' . $salt_map_setting->apiKey . '&sensor=false');
 		
 		wp_register_style( 'salt_map_page_style', plugins_url( '/styles/salt_map.css', __FILE__ ) );

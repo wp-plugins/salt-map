@@ -79,7 +79,7 @@ class salt_map_setting {
 			return $override;
 		}
 
-		$value = get_option( "salt_map_settings", null );
+		$value = get_option( "salt_map_settings", array() );
 		$value = array_key_exists($key, $value) ? $value[$key] : null;
 
 		if($value == null || empty($value)) {

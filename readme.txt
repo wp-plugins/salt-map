@@ -45,6 +45,8 @@ Non yet.
 
 == Changelog ==
 = 1.4.0 =
+* Fixed warnings when using 'array_key_exists'
+= 1.4.0 =
 * Removed need for instanceName in short code when using several maps on one page
 * When map has a height larger the the viewport, it is lessened to 50px less then viewport
 = 1.3.1 =
