@@ -1,9 +1,9 @@
 === SALT Map ===
 Contributors: Samuel Erdtman
 Tags: Google Maps, SALT, locations, map
-Requires at least: 3.5.1
-Tested up to: 3.9.0
-Stable tag: 1.4.0
+Requires at least: 3.8.0
+Tested up to: 4.0.0
+Stable tag: 1.4.2
 Donate Link: http://salt.efs.nu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -44,7 +44,9 @@ Non yet.
 1. Location settings derived form the fields added under global settings.
 
 == Changelog ==
-= 1.4.0 =
+= 1.4.2 =
+* Fix for if page CCS had set the img max-width to 100% with !imortant indication, controls in map was small and distorted. now the !important indication is also overridden.
+= 1.4.1 =
 * Fixed warnings when using 'array_key_exists'
 = 1.4.0 =
 * Removed need for instanceName in short code when using several maps on one page

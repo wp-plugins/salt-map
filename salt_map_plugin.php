@@ -3,7 +3,7 @@
  Plugin Name: SALT Map locations
  Description: Plugin for placing locations on a map with assiciated information, based on Google maps.
  Author: Samuel Erdtman for Salt
- Version: 1.4.1
+ Version: 1.4.2
  */
 ?>
 <?php

@@ -48,7 +48,7 @@ class salt_map_shortcode {
 		if($salt_map_setting->includeSearch == "true") {
 			$code .= '<input class="salt_map_search" id="saltMapSearch' . $salt_map_setting->instanceName . '" type="text" placeholder="' . __('Search', "salt-map") . '"/>';
 		}
-		$code .= '<style>#googleMap' . $salt_map_setting->instanceName . ' img {max-width: none;}</style>';
+		$code .= '<style>#googleMap' . $salt_map_setting->instanceName . ' img {max-width: none !important;}</style>';
 		$code .= '<div id="googleMap' . $salt_map_setting->instanceName . '" style="height:' . $salt_map_setting->height . 'px;"></div>';
 		$code .= '<div id="infoWindow' . $salt_map_setting->instanceName . '"></div>';
 
